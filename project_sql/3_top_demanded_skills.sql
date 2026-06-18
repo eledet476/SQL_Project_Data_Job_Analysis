@@ -23,7 +23,25 @@ FROM
 INNER JOIN skills_dim AS skills ON skills.skill_id = remote_job_skills.skill_id
 ORDER BY
     skill_count DESC
-LIMIT 20
+LIMIT 10
+
+/* This is a shorten version of the same statement. 
+*/
+
+SELECT 
+    skills,
+    COUNT(skills_job_dim.job_id) AS demand_count
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    job_work_from_home = TRUE
+GROUP BY
+    skills
+ORDER BY
+    demand_count DESC
+LIMIT 10
 
 /*
 Top 10 Skills List in Job Offers
