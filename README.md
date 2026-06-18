@@ -1,4 +1,4 @@
-SQL Project Data Job Analysis
+## SQL Project Data Job Analysis
 
 The goal of this project was to show concise information regarding a data set I used as both a learning tool and a practice tool. The data set is taken from 2023. In this document, I've provided access to the data set used, my inquires, and my anaylsis.
 
